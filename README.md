@@ -11,6 +11,7 @@ Siyu Chen
 
 # Structure
 The structure of this project:
+
 	stat159-fall2016-hw02/
     	.gitignore
     	README.md
