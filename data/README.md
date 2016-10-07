@@ -10,4 +10,4 @@ This folder includes the original dataset and outputs from running files in the 
 
 # Credit
 
-Gareth James, Daniela Witten, Trevor Hastie and Robert Tibshirani
+Data is from the book written by Gareth James, Daniela Witten, Trevor Hastie and Robert Tibshirani
