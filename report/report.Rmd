@@ -52,11 +52,11 @@ As we can see, we have several statitics, including Min, 1st Quatile, Median, Me
 
 Then, let's take a look at their histograms.
 
-![Histogram TV Avertising Budgets](../images/histogram-tv.png)
+![Histogram of TV Avertising Budgets](../images/histogram-tv.png)
 
 As we can see, the frequencies of TV advertising budgets are approxiaately even. 
 
-![Histogram Sale](../images/histogram-sales.png)
+![Histogram of Sales](../images/histogram-sales.png)
 
 As we can see, the frequencies of Sales form a bell shape distribution. Now, let's try to fit a linear model.
 
@@ -94,15 +94,7 @@ The **Residual Standard Error**, the average amount that Sales deviate from the 
 
 At last, from the scatterplot graph of **Figuer 3**, we can see that the deviation becomes larger and larger as TV advertising budgets increase. 
 
-![Scatterplot with fitted regression line](../images/scatterplot-tv-sales.png)
-
-
-
-
-
-
-
-
+![Scatterplot](../images/scatterplot-tv-sales.png)
 That means our model becomes more unreliable as TV advertising budgets increase.
 
 # Conclusion
