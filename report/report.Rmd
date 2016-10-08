@@ -11,7 +11,7 @@ options(xtable.comment = FALSE)
 
 # Abstract 
 
-In this report, we reproduce the main results displayed in section 3.1 Simple Linear Regression (chapter 3) of the book [An Introduction to Statistical Learning](http://www-bcf.usc.edu/%7Egareth/ISL/ISLR%20Sixth%20Printing.pdf). We explore data, fit a model and check if our model is reliable or not.
+In this report, we reproduce the main results displayed in section 3.1 Simple Linear Regression (chapter 3) of the book [An Introduction to Statistical Learning](http://www-bcf.usc.edu/%7Egareth/ISL/ISLR%20Sixth%20Printing.pdf). 
 
 # Introduction
 
@@ -57,6 +57,7 @@ Then, let's take a look at their histograms.
 As we can see, the frequencies of TV advertising budgets are approxiaately even. 
 
 ![Histogram of Sales](../images/histogram-sales.png)
+
 
 As we can see, the frequencies of Sales form a bell shape distribution. Now, let's try to fit a linear model.
 
