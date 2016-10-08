@@ -4,6 +4,10 @@ author: "Siyu Chen"
 date: "10/7/2016"
 output: pdf_document
 ---
+```{r, echo=FALSE}
+library(xtable)
+options(xtable.comment = FALSE)
+```
 
 # Abstract 
 
@@ -28,41 +32,79 @@ $Sales = \beta_0 + \beta_1TV$
 
 In order to estimate two coefficients $\beta_0$ and $\beta_1$, we fit the linear regression model via the least square criterion.
 
-# Results
-We compute the regression coefficients in Table 1 below:
+
+# Exploration 
+First, let's explore our data. 
+
+```{r, results='asis', echo=FALSE}
+advertising <- read.csv("../data/Advertising.csv", sep = ",", row.names = 1)
+tvsummary <- summary(advertising$TV)
+salessummary <- summary(advertising$Sales)
+sum <- matrix(ncol = 6, nrow = 2)
+sum[1,] <- tvsummary
+sum[2,] <- salessummary
+rownames(sum) <- c('TV', 'Sales')
+colnames(sum) <- names(salessummary)
+print(xtable(sum, caption = "Data Summary"), comment=FALSE)
+```
+
+As we can see, we have several statitics, including Min, 1st Quatile, Median, Mean, 3rd Quatile and Max. We can get some initial impressions about data but we need to explore more in depth. 
+
+Then, let's take a look at their histograms.
+
+![Histogram TV Avertising Budgets](../images/histogram-tv.png)
+
+As we can see, the frequencies of TV advertising budgets are approxiaately even. 
+
+![Histogram Sale](../images/histogram-sales.png)
+
+As we can see, the frequencies of Sales form a bell shape distribution. Now, let's try to fit a linear model.
+
+
+# Linear Model Results
+We compute the regression coefficients in Table 2 below:
 
 ```{r, results='asis', echo=FALSE}
 load(file = "../data/regression.RData")
 sum <- summary(reg)
-library(xtable)
-table1 <- xtable(sum, caption = "Information about Regression Coefficients")
-print(table1, comment=FALSE)
+table2 <- xtable(sum, caption = "Information about Regression Coefficients")
+print(table2, comment=FALSE)
 ```
 
-From the **Table1** above, we can see that the slope of our linear model is around 0.0475 and the intercept point at 7.0326. This indicates that if TV advertising budgets increase by 1 thousands dollars, Sales will increase by about 0.0475 thousands of units. This also indicates that if TV advertising budget is zero, Sales will still be around 7.0326 thousands of units.
+From the **Table2**, we can see that the slope of our linear model is around 0.0475 and the intercept point at 7.0326. 
+
+This indicates that if TV advertising budgets increase by 1 thousands dollars, Sales will increase by about 0.0475 thousands of units. This also indicates that if TV advertising budget is zero, Sales will still be around 7.0326 thousands of units.
 
 Now let's see if our model is reliable or not.
 
 ```{r, results='asis',echo=FALSE}
-summary_table_fields <- c("Residual standard error", "R Squared", "F-Statistics")
-summary_table_values <- c(sum$sigma, sum$r.squared, sum$fstatistic[1])
-summary_table_df <- data.frame(summary_table_fields, summary_table_values)
-colnames(summary_table_df) <- c("Quantity", "Value")
-table2 <- xtable(summary_table_df, caption = "Regression Quality Indicies")
-print(table2, comment=FALSE)
+summary_fields <- c("Residual standard error", "R Squared", "F-Statistics")
+summary_values <- c(sum$sigma, sum$r.squared, sum$fstatistic[1])
+
+summary_df <- data.frame(summary_fields, summary_values)
+
+colnames(summary_df) <- c("Quantity", "Value")
+table3 <- xtable(summary_df, caption = "Regression Quality Indicies")
+print(table3, comment=FALSE)
 ```
 
-From the **Table2** above, we can see that the **R Squared**, which is a indicator of correlatin between Sales and TV advertising budgets,is 0.61. As we can see, 0.61 is not very high, which means it's not good enough. One of reason is that we don't have enough data to build a better model. 
+From the **Table3** above, we can see that the **R Squared**, which is a indicator of correlatin between Sales and TV advertising budgets,is 0.61. I would say 0.61 is not very high, which means it's not good enough. 
 
-The **Residual Standard Error**,the average amount that Sales deviate from the true regression line, is 3.26. That means the average deviation of Sales from our predicted value is about 3260 units. The mean of Sales is only about 14.02 thousand units, and this deviation is almost 23.25%. So I would say our predicted linear model is not very reliable.
+The **Residual Standard Error**, the average amount that Sales deviate from the true regression line, is 3.26. That means the average deviation of Sales from our predicted value is about 3260 units. 3260 is fairly large since the mean of Sales is only around 14000. So I would say our predicted linear model is not very reliable.
 
-In addition, from the scatterplot graph of **Figuer 1**, we can see that the deviation becomes larger and larger as TV advertising budgets increase. 
+At last, from the scatterplot graph of **Figuer 3**, we can see that the deviation becomes larger and larger as TV advertising budgets increase. 
 
 ![Scatterplot with fitted regression line](../images/scatterplot-tv-sales.png)
+
+
+
+
+
+
 
 
 That means our model becomes more unreliable as TV advertising budgets increase.
 
 # Conclusion
 
-Our simple linear regression model is able to make relatively reliable prediction when TV advertising budget is small. The reliability of our prediction decreases as TV advertising budget gets larger. This problem can be possiblely solved by fitting a model from a larger dataset, fitting a different model or removing outliers.
+Our linear regression model is able to make relatively reliable prediction when TV advertising budget is small. The reliability of our prediction decreases as TV advertising budget gets larger. This problem can be possiblely solved by fitting a model from a larger dataset, fitting a different model or removing outliers.
