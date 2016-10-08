@@ -11,7 +11,7 @@ options(xtable.comment = FALSE)
 
 # Abstract 
 
-In this report, we reproduce the main results displayed in section 3.1 Simple Linear Regression (chapter 3) of the book [An Introduction to Statistical Learning](http://www-bcf.usc.edu/%7Egareth/ISL/ISLR%20Sixth%20Printing.pdf).
+In this report, we reproduce the main results displayed in section 3.1 Simple Linear Regression (chapter 3) of the book [An Introduction to Statistical Learning](http://www-bcf.usc.edu/%7Egareth/ISL/ISLR%20Sixth%20Printing.pdf). We explore data, fit a model and check if our model is reliable or not.
 
 # Introduction
 
@@ -71,11 +71,9 @@ table2 <- xtable(sum, caption = "Information about Regression Coefficients")
 print(table2, comment=FALSE)
 ```
 
-From the **Table2**, we can see that the slope of our linear model is around 0.0475 and the intercept point at 7.0326. 
+From the **Table2**, we can see that the slope of our linear model is around 0.0475 and the intercept point is at 7.0326. 
 
-This indicates that if TV advertising budgets increase by 1 thousands dollars, Sales will increase by about 0.0475 thousands of units. This also indicates that if TV advertising budget is zero, Sales will still be around 7.0326 thousands of units.
-
-Now let's see if our model is reliable or not.
+This implies that if TV advertising budgets increase by 1 thousands dollars, Sales will increase by about 0.0475 thousands of units. This also implies that if TV advertising budget is zero, Sales will still be around 7.0326 thousands of units. But our model may not be reliable. So let's check if our model is reliable or not.
 
 ```{r, results='asis',echo=FALSE}
 summary_fields <- c("Residual standard error", "R Squared", "F-Statistics")
