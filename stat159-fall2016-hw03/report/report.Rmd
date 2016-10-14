@@ -71,15 +71,18 @@ As we can see, the coefficient estimate for **Newspaper** in the multiple regres
 
 In fact, it makes sense that multiple regression suggest no relationship between **Sales** and **Newspaper** while the simple linear regression implies the opposite. 
 
-Let's look at the following correlation matrix. The correlation between **radio** and **newspaper** is `r round(matrix_cor['Radio', 'Newspaper'],2)`. This reveals a tendency to spend more on newspaper advertising in markets where more is spent on radio advertising. In a simple linear regression which only examines **Sales** versus **Newspaper**, we observe that higher values of **Newspaper** tend to be associated with higher values of **Sales**, which is because **Newspaper** is a surrogate for **Radio** advertising; **Newspaper** gets "credit" for the effect of **Radio** on **Sales**.
-
 ```{r, results='asis', echo=FALSE}
 table5 <- xtable(matrix_cor, caption = "Correlation matrix")
 print(table5)
 ```
 
 \newpage
+By **Table 5**, the correlation between **radio** and **newspaper** is `r round(matrix_cor['Radio', 'Newspaper'],2)`. This reveals a tendency to spend more on newspaper advertising in markets where more is spent on radio advertising. In a simple linear regression which only examines **Sales** versus **Newspaper**, we observe that higher values of **Newspaper** tend to be associated with higher values of **Sales**, which is because **Newspaper** is a surrogate for **Radio** advertising; **Newspaper** gets "credit" for the effect of **Radio** on **Sales**.
+
+
 Now, let's answer following questions. 
+
+## Is at least one of the predictors useful in predicting the response?
 ```{r, results='asis', echo=FALSE}
 stats_df <- data.frame(
   Quantity = c("Residual standard error", "R squared", "F-statistic"),
@@ -88,8 +91,7 @@ stats_df <- data.frame(
 print(xtable(stats_df, caption = "RSE, R-squared and F-statistic of the least squares model"))
 
 ```
-## Is at least one of the predictors useful in predicting the response?
-The F-statistic for the multiple linear regression model obtained by regressing **Sales** onto **TV**, **Newspaper**, **Radio** is `r round(stats_df[3,2],2)`. Since this is far larger than 1, it suggests that at least one of the advertising media must be related to **Sales**.
+By **Table 6**, the F-statistic for the multiple linear regression model obtained by regressing **Sales** onto **TV**, **Newspaper**, **Radio** is `r round(stats_df[3,2],2)`. Since this is far larger than 1, it suggests that at least one of the advertising media must be related to **Sales**.
 
 ## Do all predictors help to explain the response, or is only a subset of the predictors useful?
 
