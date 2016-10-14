@@ -9,7 +9,7 @@ eda-output.txt: code/eda-script.R data/Advertising.csv
 regression.RData: code/regression-script.R data/Advertising.csv
 	cd code; Rscript regression-script.R
 
-report.pdf: report/report.Rmd regression.RData images/scatterplot-tv-sales.png
+report.pdf: report/report.Rmd data/regression.RData images/scatterplot-tv-sales.png
 	cd report;Rscript -e "library(rmarkdown); render('report.Rmd','pdf_document')"
 	cd report;Rscript -e "library(rmarkdown); render('report.Rmd','html_document')"
 

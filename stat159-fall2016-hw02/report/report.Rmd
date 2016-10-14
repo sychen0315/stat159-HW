@@ -94,6 +94,8 @@ The **Residual Standard Error**, the average amount that Sales deviate from the 
 At last, from the scatterplot graph of **Figuer 3**, we can see that the deviation becomes larger and larger as TV advertising budgets increase. 
 
 ![Scatterplot](../images/scatterplot-tv-sales.png)
+
+\newpage
 That means our model becomes more unreliable as TV advertising budgets increase.
 
 # Conclusion
