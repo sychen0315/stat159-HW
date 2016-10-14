@@ -2,12 +2,17 @@
 advertising <- read.csv(file = "../../data/Advertising.csv", sep = ",", row.names = 1)
 
 # Computes regression objects
-reg_Sales_on_TV <-  lm(advertising$Sales ~ advertising$TV)
-reg_Sales_on_Radio <-  lm(advertising$Sales ~ advertising$Radio)
-reg_Sales_on_Newspaper <-  lm(advertising$Sales ~ advertising$Newspaper)
+Sales <- advertising$Sales
+TV <- advertising$TV
+Newspaper <- advertising$Newspaper
+Radio <- advertising$Radio
 
-multi_reg <- lm(advertising$Sales ~ advertising$TV+
-                  advertising$Radio+advertising$Newspaper)
+reg_Sales_on_TV <-  lm(Sales ~ TV)
+reg_Sales_on_Radio <-  lm(Sales ~ Radio)
+reg_Sales_on_Newspaper <-  lm(Sales ~ Newspaper)
+
+multi_reg <- lm(Sales ~ TV+
+                  Radio+Newspaper)
 
 multi_reg_sum<-summary(multi_reg)
 save(reg_Sales_on_TV,reg_Sales_on_Radio,reg_Sales_on_Newspaper,
@@ -17,19 +22,19 @@ save(reg_Sales_on_TV,reg_Sales_on_Radio,reg_Sales_on_Newspaper,
 
 # Plots
 png(file = "../../images/scatterplot-tv-sales.png")
-plot(advertising$TV, advertising$Sales, pch = 19, col = 'red', 
+plot(TV, Sales, pch = 19, col = 'red', 
      main = "Scatterplot of Sales vs TV advertising budgets ")
 abline(reg_Sales_on_TV, lwd = 2) 
 dev.off()
 
 png(file = "../../images/scatterplot-radio-sales.png")
-plot(advertising$Radio, advertising$Sales, pch = 19, col = 'red', 
+plot(Radio, Sales, pch = 19, col = 'red', 
      main = "Scatterplot of Sales vs Radio advertising budgets")
 abline(reg_Sales_on_Radio, lwd = 2) 
 dev.off()
 
 png(file = "../../images/scatterplot-newspaper-sales.png")
-plot(advertising$Radio, advertising$Sales, pch = 19, col = 'red', 
+plot(Radio, Sales, pch = 19, col = 'red', 
      main = "Scatterplot of Sales vs Newspaper advertising budgets")
 abline(reg_Sales_on_Newspaper, lwd = 2) 
 dev.off()
