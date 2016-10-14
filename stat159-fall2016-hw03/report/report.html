@@ -208,7 +208,6 @@ First, we should examine least squares coefficient estimates.
 \end{table}
 <p>As we can see, the coefficient estimate for <strong>Newspaper</strong> in the multiple regression model is close to zero, and the corresponding p-value is no longer significant, which is 0.86. This is different from the result of simple linear regression.</p>
 <p>In fact, it makes sense that multiple regression suggest no relationship between <strong>Sales</strong> and <strong>Newspaper</strong> while the simple linear regression implies the opposite.</p>
-<p>Let’s look at the following correlation matrix. The correlation between <strong>radio</strong> and <strong>newspaper</strong> is 0.35. This reveals a tendency to spend more on newspaper advertising in markets where more is spent on radio advertising. In a simple linear regression which only examines <strong>Sales</strong> versus <strong>Newspaper</strong>, we observe that higher values of <strong>Newspaper</strong> tend to be associated with higher values of <strong>Sales</strong>, which is because <strong>Newspaper</strong> is a surrogate for <strong>Radio</strong> advertising; <strong>Newspaper</strong> gets “credit” for the effect of <strong>Radio</strong> on <strong>Sales</strong>.</p>
 \begin{table}[ht]
 \centering
 \begin{tabular}{rrrrr}
@@ -225,7 +224,10 @@ TV &amp; 1.00 &amp; 0.05 &amp; 0.06 &amp; 0.78 \\
 \end{table}
 \newpage
 
-Now, let’s answer following questions.
+<p>By <strong>Table 5</strong>, the correlation between <strong>radio</strong> and <strong>newspaper</strong> is 0.35. This reveals a tendency to spend more on newspaper advertising in markets where more is spent on radio advertising. In a simple linear regression which only examines <strong>Sales</strong> versus <strong>Newspaper</strong>, we observe that higher values of <strong>Newspaper</strong> tend to be associated with higher values of <strong>Sales</strong>, which is because <strong>Newspaper</strong> is a surrogate for <strong>Radio</strong> advertising; <strong>Newspaper</strong> gets “credit” for the effect of <strong>Radio</strong> on <strong>Sales</strong>.</p>
+<p>Now, let’s answer following questions.</p>
+<div id="is-at-least-one-of-the-predictors-useful-in-predicting-the-response" class="section level2">
+<h2>Is at least one of the predictors useful in predicting the response?</h2>
 \begin{table}[ht]
 \centering
 \begin{tabular}{rlr}
@@ -239,9 +241,7 @@ Now, let’s answer following questions.
 \end{tabular}
 \caption{RSE, R-squared and F-statistic of the least squares model} 
 \end{table}
-<div id="is-at-least-one-of-the-predictors-useful-in-predicting-the-response" class="section level2">
-<h2>Is at least one of the predictors useful in predicting the response?</h2>
-<p>The F-statistic for the multiple linear regression model obtained by regressing <strong>Sales</strong> onto <strong>TV</strong>, <strong>Newspaper</strong>, <strong>Radio</strong> is 570.27. Since this is far larger than 1, it suggests that at least one of the advertising media must be related to <strong>Sales</strong>.</p>
+<p>By <strong>Table 6</strong>, the F-statistic for the multiple linear regression model obtained by regressing <strong>Sales</strong> onto <strong>TV</strong>, <strong>Newspaper</strong>, <strong>Radio</strong> is 570.27. Since this is far larger than 1, it suggests that at least one of the advertising media must be related to <strong>Sales</strong>.</p>
 </div>
 <div id="do-all-predictors-help-to-explain-the-response-or-is-only-a-subset-of-the-predictors-useful" class="section level2">
 <h2>Do all predictors help to explain the response, or is only a subset of the predictors useful?</h2>
