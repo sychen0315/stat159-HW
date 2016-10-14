@@ -1,0 +1,24 @@
+R version 3.3.1 (2016-06-21)
+Platform: x86_64-apple-darwin16.0.0 (64-bit)
+Running under: OS X 10.12 (Sierra)
+
+locale:
+[1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods  
+[7] base     
+
+other attached packages:
+[1] testthat_1.0.2  shiny_0.14.1    stringr_1.1.0   ggplot2_2.1.0  
+[5] babynames_0.2.1
+
+loaded via a namespace (and not attached):
+ [1] Rcpp_0.12.7       knitr_1.14        magrittr_1.5     
+ [4] munsell_0.4.3     colorspace_1.2-7  xtable_1.8-2     
+ [7] R6_2.2.0          plyr_1.8.4        tools_3.3.1      
+[10] grid_3.3.1        gtable_0.2.0      htmltools_0.3.5  
+[13] yaml_2.1.13       digest_0.6.10     crayon_1.3.2     
+[16] formatR_1.4       rsconnect_0.4.1.4 evaluate_0.9     
+[19] mime_0.5          rmarkdown_1.0     labeling_0.3     
+[22] stringi_1.1.2     scales_0.4.0      httpuv_1.3.3     

@@ -1,0 +1,59 @@
+---
+title: "Stat159 HW03 Multiple Regression Analysis"
+author: "Siyu Chen"
+date: "10/14/2016"
+output: pdf_document
+---
+```{r, echo=FALSE}
+library(xtable)
+options(xtable.comment = FALSE)
+```
+
+# Abstract
+The purpose of this assignment is to extend the scope of the previous HW. Not only we will look into relationships among variables, but also we will write funtions to compute some important statistics. In addition, we need to write unit tests to test our written functions. 
+
+# Introduction
+The overall goal is to examine the effect of TV, Newspaper and Radio advertising budgets on Sales by calculations and plotting graphs. If we do find a relationship, then we want to build a good linear model that can be used for Sales prediction based on TV, Newspaper or Radio advertising budgets.
+
+# Data
+The [advertising dataset](http://www-bcf.usc.edu/%7Egareth/ISL/Advertising.csv) consists of Sales(in thousands of units) of a particular product in 200 different markets, along with advertising budgets (in thousands of dollars) for the product in each of those markets for three different media (TV, Newspaper and Radio). 
+
+# Methodology
+We consider Sales vs TV, Newspaper and Radio advertising budgets in our dataset and try to fit them in a multiple linear regression model:
+
+\begin{center} $Sales = \beta_0 + \beta_1TV + \beta_2Newspaper + \beta_3Radio$ \end{center}
+
+In order to estimate four coefficients $\beta_0$, $\beta_1$, $\beta_2$ and $\beta_3$ we fit the linear regression model via the least square criterion.
+
+# Results
+```{r, echo=FALSE}
+load('../data/regression.RData')
+load('../data/correlation-matrix.RData')
+source('../code/functions/regression-functions.R')
+```
+
+Before analysis about multiple linear regression, it's good to examine the relationships between Sales and each of TV, Newspaper and Radio advertising budgets.
+
+```{r, results='asis', echo=FALSE}
+table1 <- xtable(reg_Sales_on_TV, caption = "Regressing Sales on TV advertising budgets")
+print(table1, comment = FALSE)
+```
+
+As we can see, the p-value of predictor is pretty small, which is `r b <- summary(reg_Sales_on_TV); round(b$coefficients['advertising$TV', 'Pr(>|t|)'], 4)`. So we can infer that there is an association between the predictor(TV advertising budgets) and the response(Sales).
+
+```{r, results='asis', echo=FALSE}
+table2 <- xtable(reg_Sales_on_Newspaper, caption = "Regressing Sales on Newspaper advertising budgets")
+print(table2, comment = FALSE)
+```
+
+As we can see, the p-value of predictor is pretty small, which is `r b <- summary(reg_Sales_on_Newspaper); round(b$coefficients['advertising$Newspaper', 'Pr(>|t|)'], 4)`. So we can infer that there is an association between the predictor(Newspaper advertising budgets) and the response(Sales).
+
+```{r, results='asis', echo=FALSE}
+table3 <- xtable(reg_Sales_on_Radio, caption = "Regressing Sales on Radio advertising budgets")
+print(table3, comment = FALSE)
+```
+
+As we can see, the p-value of predictor is pretty small, which is `r b <- summary(reg_Sales_on_Radio); round(b$coefficients['advertising$Radio', 'Pr(>|t|)'], 4)`. So we can infer that there is an association between the predictor(Radio advertising budgets) and the response(Sales).
+## Is at least one of the predictors useful in predicting the response?
+
+

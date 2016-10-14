@@ -1,5 +1,5 @@
 # Read data
-advertising <- read.csv(file = "../data/Advertising.csv", sep = ",", row.names = 1)
+advertising <- read.csv(file = "../../data/Advertising.csv", sep = ",", row.names = 1)
 
 # Computes regression objects
 reg_Sales_on_TV <-  lm(advertising$Sales ~ advertising$TV)
@@ -9,9 +9,9 @@ reg_Sales_on_Newspaper <-  lm(advertising$Sales ~ advertising$Newspaper)
 multi_reg <- lm(advertising$Sales ~ advertising$TV+
                   advertising$Radio+advertising$Newspaper)
 
-summary(multi_reg)
+multi_reg_sum<-summary(multi_reg)
 save(reg_Sales_on_TV,reg_Sales_on_Radio,reg_Sales_on_Newspaper,
-     multi_reg,summary(multi_reg),file = "../../data/regression.RData")
+     multi_reg, multi_reg_sum,file = "../../data/regression.RData")
 
 
 
